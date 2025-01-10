@@ -1,4 +1,4 @@
-package com.iakk.feladat.resources;
+package com.iakk.nevnapkereso.resources;
 
 import javax.ws.rs.GET;
 import javax.ws.rs.Path;

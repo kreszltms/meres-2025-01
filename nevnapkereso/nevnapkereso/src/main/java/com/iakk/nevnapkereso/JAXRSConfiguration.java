@@ -1,4 +1,4 @@
-package com.iakk.feladat;
+package com.iakk.nevnapkereso;
 
 import javax.ws.rs.ApplicationPath;
 import javax.ws.rs.core.Application;

@@ -2,10 +2,10 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
     <groupId>com.iakk</groupId>
-    <artifactId>2feladat</artifactId>
+    <artifactId>nevnapkereso</artifactId>
     <version>1.0-SNAPSHOT</version>
     <packaging>war</packaging>
-    <name>2feladat-1.0-SNAPSHOT</name>
+    <name>nevnapkereso</name>
     
     <properties>
         <maven.compiler.source>1.8</maven.compiler.source>
@@ -16,21 +16,20 @@
         <jakartaee>8.0</jakartaee>
     </properties>
     
-    <dependencies>
+<dependencies>
+    <dependency>
+        <groupId>javax.servlet</groupId>
+        <artifactId>javax.servlet-api</artifactId>
+        <version>4.0.1</version>
+        <scope>provided</scope>
+    </dependency>
+    <dependency>
+        <groupId>mysql</groupId>
+        <artifactId>mysql-connector-java</artifactId>
+        <version>8.0.34</version>
+    </dependency>
+</dependencies>
 
-        <dependency>
-            <groupId>javax.servlet</groupId>
-            <artifactId>javax.servlet-api</artifactId>
-            <version>4.0.1</version>
-            <scope>provided</scope>
-        </dependency>
-
-        <dependency>
-            <groupId>mysql</groupId>
-            <artifactId>mysql-connector-java</artifactId>
-            <version>8.0.34</version>
-        </dependency>
-    </dependencies>
     
      <build>
         <plugins>
