@@ -1,10 +1,45 @@
 <!DOCTYPE html>
-<html>
-    <head>
-        <title>Start Page</title>
-        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-    </head>
-    <body>
-        <h1>Hello World!</h1>
-    </body>
+<html lang="hu">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Névnapkereső</title>
+</head>
+<body>
+    <h1>Névnapkereső</h1>
+    <form id="searchForm">
+        <label for="nap">Dátum:</label>
+        <input type="text" id="nap" name="nap" placeholder="4-30">
+        <label for="nev">Név:</label>
+        <input type="text" id="nev" name="nev" placeholder="Katalin">
+        <button type="button" onclick="search()">Keresés</button>
+    </form>
+    <div id="result"></div>
+    <script>
+        function search() {
+            const nap = document.getElementById('nap').value;
+            const nev = document.getElementById('nev').value;
+            let url = '/nevnapkereso/api/nevnap';
+
+            if (nap) {
+                url += `?nap=${nap}`;
+            } else if (nev) {
+                url += `?nev=${nev}`;
+            } else {
+                document.getElementById('result').innerText = 'Adj meg dátumot vagy nevet!';
+                return;
+            }
+
+            fetch(url)
+                .then(response => response.json())
+                .then(data => {
+                    if (data.hiba) {
+                        document.getElementById('result').innerText = data.hiba;
+                    } else {
+                        document.getElementById('result').innerText = JSON.stringify(data);
+                    }
+                });
+        }
+    </script>
+</body>
 </html>
