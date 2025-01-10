@@ -1,0 +1,27 @@
+import java.io.*;
+import java.util.*;
+
+public class Kalapacsvetes {
+    public static void main(String[] args) throws IOException {
+        List<Sportolo> sportolok = new ArrayList<>();
+        
+        BufferedReader br = new BufferedReader(new FileReader("kalapacsvetes.txt"));
+        String sor;
+        br.readLine();
+        
+        while ((sor = br.readLine()) != null) {
+            String[] adatok = sor.split(";");
+            int helyezes = Integer.parseInt(adatok[0].trim());
+            double eredmeny = Double.parseDouble(adatok[1].trim());
+            String nev = adatok[2].trim();
+            String orszagKod = adatok[3].trim();
+            String helyszin = adatok[4].trim();
+            String datum = adatok[5].trim();
+            
+            Sportolo sportolo = new Sportolo(helyezes, eredmeny, nev, orszagKod, helyszin, datum);
+            sportolok.add(sportolo);
+        }
+        br.close();
+        
+    }
+}
